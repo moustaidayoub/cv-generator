@@ -1,0 +1,234 @@
+<html>
+<head>
+<title>.::Géneration de CV v1.0::.</title>
+<link class="jsbin" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1/themes/base/jquery-ui.css" rel="stylesheet" type="text/css" />
+<script class="jsbin" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+<script class="jsbin" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.0/jquery-ui.min.js"></script>
+
+<script language="javascript" type="text/javascript" src="niceforms.js"></script>
+<link rel="stylesheet" type="text/css" media="all" href="niceforms-default.css" />
+</head>
+<body>
+<div id="header"></div>
+<p align="right">La première version : v1.0</p>
+<div id="container">
+<form enctype="multipart/form-data" action="generation_cv.php" method="POST" class="niceform">
+<fieldset><legend>Infos personnelles</legend>
+<table>
+<!--
+<tr><td>Photo : (Taille<=500kb)</td><td><input type="file" id="fichier" name="fichier" onchange="readURL(this);"/> </td></tr>
+<tr><td colspan="2"><img id="blah" src="#"/></td></tr>
+-->
+<tr><td>Nom :</td><td><input type="text" id="nom" name="nom" /> </td></tr>
+<tr><td>Prénom :</td><td><input type="text" id="prenom" name="prenom" /> </td></tr>
+<tr><td>Situation familiale  :</td><td><input type="text" id="situation" name="situation" /> </td></tr>
+<tr><td>Nationalité  :</td><td><input type="text" id="nationalite" name="nationalite" /> </td></tr>
+<tr><td>Date de naissance :</td><td><input type="DATE" id="datenaissance" name="datenaissance"/> </td></tr>
+<tr><td>Adresse :</td><td><input type="text" id="adresse" name="adresse"/> </td></tr>
+<tr><td>E-Mail :</td><td><input type="text" id="email" name="email"/> </td></tr>
+<tr><td>Tél :</td><td><input type="text" id="tel" name="tel" /> </td></tr>
+</table>
+</fieldset>
+<fieldset>
+<legend>Titre du Cv</legend>
+<table>
+<tr><td>Titre :</td><td><input type="text" id="titre" name="titre" maxlength="42" /> </td></tr>
+</table>
+</fieldset>
+<fieldset>
+<legend>Formations</legend>
+<table>
+<tr id="f1"><td>Debut : </td><td><input type="text" id="debut1" name="debut1" maxlength="12"/></td>
+    <td>Fin : </td><td><input type="text" id="fin1" name="fin1" maxlength="12"/></td>
+	<td>Intitule : </td><td><input type="text" id="for1" name="for1" maxlength="30" /></td>
+	<td>Details : </td><td><input id="detfor1" name="detfor1" /></td>
+	<td><input type="button" id="add1" name="add1" value="Ajouter une formation" onclick="document.getElementById('f2').style.display='';this.style.visibility='hidden';"/></td></tr>
+<tr id="f2" style="display:none;"><td>Debut : </td><td><input type="text" id="debut2" name="debut2" maxlength="12"/></td>
+    <td>Fin : </td><td><input type="text" id="fin2" name="fin2" maxlength="12"/></td>
+	<td>Intitule : </td><td><input type="text" id="for2" name="for2" maxlength="30" /></td>
+	<td>Details : </td><td><input id="detfor2" name="detfor2" /></td>
+	<td><input type="button" id="add2" name="add2" value="Ajouter une formation" onclick="document.getElementById('f3').style.display='';this.style.visibility='hidden';"/></td></tr>
+<tr id="f3" style="display:none;"><td>Debut : </td><td><input type="text" id="debut3" name="debut3" maxlength="12"/></td>
+    <td>Fin : </td><td><input type="text" id="fin3" name="fin3" maxlength="12"/></td>
+	<td>Intitule : </td><td><input type="text" id="for3" name="for3" maxlength="30" /></td>
+	<td>Details : </td><td><input id="detfor3" name="detfor3" /></td>
+	<td><input type="button" id="add3" name="add3" value="Ajouter une formation" onclick="document.getElementById('f4').style.display='';this.style.visibility='hidden';"/></td></tr>
+<tr id="f4" style="display:none;"><td>Debut : </td><td><input type="text" id="debut4" name="debut4" maxlength="12"/></td>
+    <td>Fin : </td><td><input type="text" id="fin4" name="fin4" maxlength="12"/></td>
+	<td>Intitule : </td><td><input type="text" id="for4" name="for4" maxlength="30" /></td>
+	<td>Details : </td><td><input id="detfor4" name="detfor4" maxlength="60"/></td>
+	<td><input type="button" id="add4" name="add4" value="Ajouter une formation" onclick="document.getElementById('f5').style.display='';this.style.visibility='hidden';"/></td></tr>
+<tr id="f5" style="display:none;"><td>Debut : </td><td><input type="text" id="debut5" name="debut5" maxlength="12"/></td>
+    <td>Fin : </td><td><input type="text" id="fin5" name="fin5" maxlength="12"/></td>
+	<td>Intitule : </td><td><input type="text" id="for5" name="for5" maxlength="30" /></td>
+	<td>Details : </td><td><input id="detfor5" name="detfor5" /></td>
+	<td><input type="button" id="add" name="add" value="Ajouter une formation" onclick="document.getElementById('f6').style.display='';this.style.visibility='hidden';"/></td></tr>
+<tr id="f6" style="display:none;"><td>Debut : </td><td><input type="text" id="debut6" name="debut6" maxlength="12"/></td>
+    <td>Fin : </td><td><input type="text" id="fin6" name="fin6" maxlength="12"/></td>
+	<td>Intitule : </td><td><input type="text" id="for6" name="for6" maxlength="30" /></td>
+	<td>Details : </td><td><input id="detfor6" name="detfor6" /></td>
+	<td><input type="button" id="add6" name="add6" value="Ajouter une formation" onclick="document.getElementById('f7').style.display='';this.style.visibility='hidden';"/></td></tr>
+<tr id="f7" style="display:none;"><td>Debut : </td><td><input type="text" id="debut7" name="debut7" maxlength="12"/></td>
+    <td>Fin : </td><td><input type="text" id="fin7" name="fin7" maxlength="12"/></td>
+	<td>Intitule : </td><td><input type="text" id="for7" name="for7" maxlength="30" /></td>
+	<td>Details : </td><td><input id="detfor7" name="detfor7" /></td>
+	</tr>
+	</table>
+</fieldset>
+<fieldset>
+<legend>Experiences</legend>
+<table>
+<tr id="e1"><td>Debut : </td><td><input type="text" id="debut_exp1" name="debut_exp1" maxlength="12"/></td>
+    <td>Fin : </td><td><input type="text" id="fin_exp1" name="fin_exp1" maxlength="12"/></td>
+	<td>Intitule : </td><td><input type="text" id="exp1" name="exp1" maxlength="30" /></td>
+	<td>Details : </td><td><input id="detexp1" name="detexp1" /></td>
+	<td><input type="button" id="add1" name="add1" value="Ajouter une experience" onclick="document.getElementById('e2').style.display='';this.style.visibility='hidden';"/></td></tr>
+<tr id="e2" style="display:none;"><td>Debut : </td><td><input type="text" id="debut_exp2" name="debut_exp2" maxlength="12"/></td>
+    <td>Fin : </td><td><input type="text" id="fin_exp2" name="fin_exp2" maxlength="12"/></td>
+	<td>Intitule : </td><td><input type="text" id="exp2" name="exp2" maxlength="30" /></td>
+	<td>Details : </td><td><input id="detexp2" name="detexp2" /></td>
+	<td><input type="button" id="add1" name="add1" value="Ajouter une experience" onclick="document.getElementById('e3').style.display='';this.style.visibility='hidden';"/></td></tr>
+<tr id="e3" style="display:none;"><td>Debut : </td><td><input type="text" id="debut_exp3" name="debut_exp3" maxlength="12"/></td>
+    <td>Fin : </td><td><input type="text" id="fin_exp3" name="fin_exp3" maxlength="12"/></td>
+	<td>Intitule : </td><td><input type="text" id="exp3" name="exp3" maxlength="30" /></td>
+	<td>Details : </td><td><input id="detexp3" name="detexp3" /></td>
+	<td><input type="button" id="add1" name="add1" value="Ajouter une experience" onclick="document.getElementById('e4').style.display='';this.style.visibility='hidden';"/></td></tr>
+<tr id="e4" style="display:none;"><td>Debut : </td><td><input type="text" id="debut_exp4" name="debut_exp4" maxlength="12"/></td>
+    <td>Fin : </td><td><input type="text" id="fin_exp4" name="fin_exp4" maxlength="12"/></td>
+	<td>Intitule : </td><td><input type="text" id="exp4" name="exp4" maxlength="30" /></td>
+	<td>Details : </td><td><input id="detexp4" name="detexp4" /></td>
+	<td><input type="button" id="add1" name="add1" value="Ajouter une experience" onclick="document.getElementById('e5').style.display='';this.style.visibility='hidden';"/></td></tr>
+<tr id="e5" style="display:none;"><td>Debut : </td><td><input type="text" id="debut_exp5" name="debut_exp5" maxlength="12"/></td>
+    <td>Fin : </td><td><input type="text" id="fin_exp5" name="fin_exp5" maxlength="12"/></td>
+	<td>Intitule : </td><td><input type="text" id="exp5" name="exp5" maxlength="30" /></td>
+	<td>Details : </td><td><input id="detexp5" name="detexp5" /></td>
+	<td><input type="button" id="add1" name="add1" value="Ajouter une experience" onclick="document.getElementById('e6').style.display='';this.style.visibility='hidden';"/></td></tr>
+<tr id="e6" style="display:none;"><td>Debut : </td><td><input type="text" id="debut_exp6" name="debut_exp6" maxlength="12"/></td>
+    <td>Fin : </td><td><input type="text" id="fin_exp6" name="fin_exp6" maxlength="12"/></td>
+	<td>Intitule : </td><td><input type="text" id="exp6" name="exp6" maxlength="30" /></td>
+	<td>Details : </td><td><input id="detexp6" name="detexp6" /></td>
+	<td><input type="button" id="add1" name="add1" value="Ajouter une experience" onclick="document.getElementById('e7').style.display='';this.style.visibility='hidden';"/></td></tr>
+<tr id="e7" style="display:none;"><td>Debut : </td><td><input type="text" id="debut_exp7" name="debut_exp7" maxlength="12"/></td>
+    <td>Fin : </td><td><input type="text" id="fin_exp7" name="fin_exp7" maxlength="12"/></td>
+	<td>Intitule : </td><td><input type="text" id="exp7" name="exp7" maxlength="30" /></td>
+	<td>Details : </td><td><input id="detexp7" name="detexp7" maxlength="60" /></td>	
+	</table>
+</fieldset>
+<fieldset>
+<legend>Compétences</legend>
+<table>
+<tr id="c1"><td>Compétence : </td><td><input type="text" id="competence1" name="competence1" maxlength="12"/></td>
+    <td>Niveau : </td><td><input type="text" id="nivcomp1" name="nivcomp1" maxlength="12"/></td>
+	<td><input type="button" id="add1" name="add1" value="Ajouter une langue" onclick="document.getElementById('c2').style.display='';this.style.visibility='hidden';"/></td></tr>
+<tr id="c2" style="display:none;"><td>Compétence : </td><td><input type="text" id="competence2" name="competence2" maxlength="12"/></td>
+    <td>Niveau : </td><td><input type="text" id="nivcomp2" name="nivcomp2" maxlength="12"/></td>
+	<td><input type="button" id="add1" name="add1" value="Ajouter une langue" onclick="document.getElementById('c3').style.display='';this.style.visibility='hidden';"/></td></tr>
+<tr id="c3" style="display:none;"><td>Compétence : </td><td><input type="text" id="competence3" name="competence3" maxlength="12"/></td>
+    <td>Niveau : </td><td><input type="text" id="nivcomp3" name="nivcomp3" maxlength="12"/></td>
+	<td><input type="button" id="add1" name="add1" value="Ajouter une langue" onclick="document.getElementById('c4').style.display='';this.style.visibility='hidden';"/></td></tr>
+<tr id="c4" style="display:none;"><td>Compétence : </td><td><input type="text" id="competence4" name="competence4" maxlength="12"/></td>
+    <td>Niveau : </td><td><input type="text" id="nivcomp4" name="nivcomp4" maxlength="12"/></td>
+	<td><input type="button" id="add1" name="add1" value="Ajouter une langue" onclick="document.getElementById('c5').style.display='';this.style.visibility='hidden';"/></td></tr>
+<tr id="c5" style="display:none;"><td>Compétence : </td><td><input type="text" id="competence5" name="competence5" maxlength="12"/></td>
+    <td>Niveau : </td><td><input type="text" id="nivcomp5" name="nivcomp5" maxlength="12"/></td>
+	<td><input type="button" id="add1" name="add1" value="Ajouter une langue" onclick="document.getElementById('c6').style.display='';this.style.visibility='hidden';"/></td></tr>
+<tr id="c6" style="display:none;"><td>Compétence : </td><td><input type="text" id="competence6" name="competence6" maxlength="12"/></td>
+    <td>Niveau : </td><td><input type="text" id="nivcomp6" name="nivcomp6" maxlength="12"/></td>
+	<td><input type="button" id="add1" name="add1" value="Ajouter une langue" onclick="document.getElementById('c7').style.display='';this.style.visibility='hidden';"/></td></tr>
+<tr id="c7" style="display:none;"><td>Compétence : </td><td><input type="text" id="competence7" name="competence7" maxlength="12"/></td>
+    <td>Niveau : </td><td><input type="text" id="nivcomp7" name="nivcomp7" maxlength="12"/></td>
+	<td><input type="button" id="add1" name="add1" value="Ajouter une langue" onclick="document.getElementById('c8').style.display='';this.style.visibility='hidden';"/></td></tr>
+<tr id="c8" style="display:none;"><td>Compétence : </td><td><input type="text" id="competence8" name="competence8" maxlength="12"/></td>
+    <td>Niveau : </td><td><input type="text" id="nivcomp8" name="nivcomp8" maxlength="12"/></td>
+	<td><input type="button" id="add1" name="add1" value="Ajouter une langue" onclick="document.getElementById('c9').style.display='';this.style.visibility='hidden';"/></td></tr>
+<tr id="c9" style="display:none;"><td>Compétence : </td><td><input type="text" id="competence9" name="competence9" maxlength="12"/></td>
+    <td>Niveau : </td><td><input type="text" id="nivcomp9" name="nivcomp9" maxlength="12"/></td>
+	<td><input type="button" id="add1" name="add1" value="Ajouter une langue" onclick="document.getElementById('c10').style.display='';this.style.visibility='hidden';"/></td></tr>
+<tr id="c10" style="display:none;"><td>Compétence : </td><td><input type="text" id="competence10" name="competence10" maxlength="12"/></td>
+    <td>Niveau : </td><td><input type="text" id="nivcomp10" name="nivcomp10" maxlength="12"/></td>
+	<td><input type="button" id="add1" name="add1" value="Ajouter une langue" onclick="document.getElementById('c11').style.display='';this.style.visibility='hidden';"/></td></tr>
+<tr id="c11" style="display:none;"><td>Compétence : </td><td><input type="text" id="competence11" name="competence11" maxlength="12"/></td>
+    <td>Niveau : </td><td><input type="text" id="nivcomp11" name="nivcomp11" maxlength="12"/></td>
+	<td><input type="button" id="add1" name="add1" value="Ajouter une langue" onclick="document.getElementById('c12').style.display='';this.style.visibility='hidden';"/></td></tr>
+<tr id="c12" style="display:none;"><td>Compétence : </td><td><input type="text" id="competence12" name="competence12" maxlength="12"/></td>
+    <td>Niveau : </td><td><input type="text" id="nivcomp12" name="nivcomp12" maxlength="12"/></td>
+	<td><input type="button" id="add1" name="add1" value="Ajouter une langue" onclick="document.getElementById('c13').style.display='';this.style.visibility='hidden';"/></td></tr>
+<tr id="c13" style="display:none;"><td>Compétence : </td><td><input type="text" id="competence13" name="competence13" maxlength="12"/></td>
+    <td>Niveau : </td><td><input type="text" id="nivcomp13" name="nivcomp13" maxlength="12"/></td>
+	<td><input type="button" id="add1" name="add1" value="Ajouter une langue" onclick="document.getElementById('c14').style.display='';this.style.visibility='hidden';"/></td></tr>
+<tr id="c14" style="display:none;"><td>Compétence : </td><td><input type="text" id="competence14" name="competence14" maxlength="12"/></td>
+    <td>Niveau : </td><td><input type="text" id="nivcomp14" name="nivcomp14" maxlength="12"/></td>
+	<td><input type="button" id="add1" name="add1" value="Ajouter une langue" onclick="document.getElementById('c15').style.display='';this.style.visibility='hidden';"/></td></tr>
+<tr id="c15" style="display:none;"><td>Compétence : </td><td><input type="text" id="competence15" name="competence15" maxlength="12"/></td>
+    <td>Niveau : </td><td><input type="text" id="nivcomp15" name="nivcomp15" maxlength="12"/></td>
+
+	</table>
+</fieldset>
+<fieldset>
+<legend>Langues</legend>
+<table>
+<tr id="l1"><td>Langue : </td><td><input type="text" id="langue1" name="langue1" maxlength="12"/></td>
+    <td>Niveau : </td><td><input type="text" id="niveau1" name="niveau1" maxlength="15"/></td>
+	<td><input type="button" id="add1" name="add1" value="Ajouter une langue" onclick="document.getElementById('l2').style.display='';this.style.visibility='hidden';"/></td></tr>
+<tr id="l2" style="display:none;"><td>Langue : </td><td><input type="text" id="langue2" name="langue2" maxlength="12"/></td>
+    <td>Niveau : </td><td><input type="text" id="niveau2" name="niveau2" maxlength="15"/></td>
+	<td><input type="button" id="add1" name="add1" value="Ajouter une langue" onclick="document.getElementById('l3').style.display='';this.style.visibility='hidden';"/></td></tr>
+<tr id="l3" style="display:none;"><td>Langue : </td><td><input type="text" id="langue3" name="langue3" maxlength="12"/></td>
+    <td>Niveau : </td><td><input type="text" id="niveau3" name="niveau3" maxlength="15"/></td>
+	<td><input type="button" id="add1" name="add1" value="Ajouter une langue" onclick="document.getElementById('l4').style.display='';this.style.visibility='hidden';"/></td></tr>
+<tr id="l4" style="display:none;"><td>Langue : </td><td><input type="text" id="langue4" name="langue4" maxlength="12"/></td>
+    <td>Niveau : </td><td><input type="text" id="niveau4" name="niveau4" maxlength="15"/></td>
+	<td><input type="button" id="add1" name="add1" value="Ajouter une langue" onclick="document.getElementById('l5').style.display='';this.style.visibility='hidden';"/></td></tr>
+<tr id="l5" style="display:none;"><td>Langue : </td><td><input type="text" id="langue5" name="langue5" maxlength="12"/></td>
+    <td>Niveau : </td><td><input type="text" id="niveau5" name="niveau5" maxlength="15"/></td>
+	<td><input type="button" id="add1" name="add1" value="Ajouter une langue" onclick="document.getElementById('l6').style.display='';this.style.visibility='hidden';"/></td></tr>
+<tr id="l6" style="display:none;"><td>Langue : </td><td><input type="text" id="langue6" name="langue6" maxlength="12"/></td>
+    <td>Niveau : </td><td><input type="text" id="niveau6" name="niveau6" maxlength="15"/></td>
+	</table>
+</fieldset>
+<fieldset>
+<legend>Autres Activitées (Loisirs)</legend>
+<table>
+<tr id="a1"><td>Activitée : </td><td><input type="text" id="activite1" name="activite1" maxlength="12"/></td>
+	<td><input type="button" id="add1" name="add1" value="Ajouter une activite" onclick="document.getElementById('a2').style.display='';this.style.visibility='hidden';"/></td></tr>
+<tr id="a2" style="display:none;" ><td>Activitée : </td><td><input type="text" id="activite2" name="activite2" maxlength="12"/></td>
+	<td><input type="button" id="add1" name="add1" value="Ajouter une activite" onclick="document.getElementById('a3').style.display='';this.style.visibility='hidden';"/></td></tr>
+<tr id="a3" style="display:none;"><td>Activitée : </td><td><input type="text" id="activite3" name="activite3" maxlength="12"/></td>
+	<td><input type="button" id="add1" name="add1" value="Ajouter une activite" onclick="document.getElementById('a4').style.display='';this.style.visibility='hidden';"/></td></tr>
+<tr id="a4" style="display:none;"><td>Activitée : </td><td><input type="text" id="activite4" name="activite4" maxlength="12"/></td>
+	<td><input type="button" id="add1" name="add1" value="Ajouter une activite" onclick="document.getElementById('a5').style.display='';this.style.visibility='hidden';"/></td></tr>
+<tr id="a5" style="display:none;"><td>Activitée : </td><td><input type="text" id="activite5" name="activite5" maxlength="12"/></td>
+	</table>
+</fieldset>
+<table style="margin-left:50%;">
+<tr><td><input type="reset" value="vider les champs" /></td><td ><input type="submit" name="generer" value="Génerer mon CV"/> </td></tr>
+</table>
+<a href="http://www.moustaidayoub.hol.es" ><p id="footer"> &copy;Moustaid Ayoub - moustaidayoubcanvas2012@gmail.com | 06.30.13.87.57 </p></a>
+
+</form>
+
+<script>
+function readURL(input)
+{
+      if (input.files && input.files[0])
+              {
+                    var reader = new FileReader();
+                   reader.onload = function (e)
+                                          {
+                                                $('#blah')
+                                                .attr('src',e.target.result)
+                                                .width(100)
+                                                .height(100);
+                                          };
+                   reader.readAsDataURL(input.files[0]);
+                   }
+}
+</script></div>
+
+<script type="text/javascript" src="http://counter2.statcounterfree.com/private/countertab.js?c=985c05478975e7471103722b2e8c7d8c"></script>
+<noscript><a href="#" title="compteur"><img src="http://counter2.statcounterfree.com/private/compteurdevisite.php?c=985c05478975e7471103722b2e8c7d8c" border="0" title="compteur" alt="compteur"></a>
+</noscript>
+
+</body>
+
+</html>
